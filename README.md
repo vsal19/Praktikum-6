@@ -1,5 +1,7 @@
 # Praktikum-6
 
+# Pertemuan 11
+
 Nama: Muhamad Faisal Ilham
 
 Kelas: TI.22.A3
@@ -9,129 +11,95 @@ NIM :312210322
 
 # Tugas
 
-![ppp](https://user-images.githubusercontent.com/115516653/204179408-d1632219-efff-46f5-a6ec-a197c9ffab0e.jpeg)
+![Tugas Pertemuan 11](https://user-images.githubusercontent.com/115516624/205634423-c9bd5e61-5bec-4aad-97e2-4c43d39ba35a.png)
+
 
 # Flowchart
 
-![pppp](https://user-images.githubusercontent.com/115516653/204179509-ae6eabc3-4e16-4054-9d06-fe879acbaf6f.png)
+![Flowchart Pertemuan 11](https://user-images.githubusercontent.com/115516624/205634457-9231b91f-ec0d-4e8f-b059-20b7f0d9ada3.png)
+
 
 # Penjelasan Program
 
-- Penggunaan while True
+> Menu program tambah data
 
-    while True berfungsi untuk mendeteksi jika format yang diinputkan bukan berupa type maka akan muncul error
-    
-- Saya membuat looping agar program terus berjalan
+        def add():
+            print("Tambah Data")
+            nama = input("Nama\t         : ")
+            nim = input("NIM\t         : ")
+            uts = int(input("Nilai UTS\t : "))
+            uas = int(input("Nilai UAS\t : "))
+            tugas = int(input("Nilai Tugas\t : "))
+            akhir = (tugas * 30 / 100) + (uts * 35 / 100) + (uas * 35 / 100)
+            mahasiswa[nama] = nim, tugas, uts, uas, akhir
 
-```python
-    while True:
-    c = input("\n(L)ihat, (T)ambah, (U)bah, (H)apus, (C)ari, (K)eluar: ")
-```
+> Menu program lihat data
 
-- Penggunaan if c.lower()
+        def show():
+            if mahasiswa.items():
+                print("Daftar Nilai")
+                print("=================================================================================")
+                print("| No |      Nama      |     NIM     |  Tugas  |   UTS   |   UAS   |    Akhir    |")
+                print("=================================================================================")
+                i = 0
+                for a in mahasiswa.items():
+                    i += 1
+                    print("| {no:2d} | {0:14s} | {1:11s} | {2:7d} | {3:7d} | {4:7d} |      {5:6.2f} |"
+                        .format(a[0][: 14], a[1][0], a[1][1], a[1][2], a[1][3], a[1][4], no=i))
+                print("=================================================================================")
 
-    if c.lower() fungsinya apabila user menginputkan denga huruf besar, maka otomatis akan menjadi huruf kecil sehingga kondisi yang digunakan tercapai
+            else:
+                print("Daftar Nilai")
+                print("=================================================================================")
+                print("| No |      Nama      |     NIM     |  Tugas  |   UTS   |   UAS   |    Akhir    |")
+                print("=================================================================================")
+                print("|                                TIDAK ADA DATA                                 |")
+                print("=================================================================================")
 
-- Lalu saya membuat format if untuk memasukkan pilihan, sebagai contoh apabila memilih (t) akan menambah data
-```python
-    if (c.lower() == 't'):
-        print('\nTambah Data Mahasiswa Baru')
-        nama= input("Masukkan Nama\t\t: ")
-        nim= input("Masukkan NIM\t\t: ")
-        nilaiTugas= int(input("Masukkan Nilai Tugas\t: "))
-        nilaiUts= int(input("Masukkan Nilai UTS\t: "))
-        nilaiUas= int(input("Masukkan Nilai UAS\t: "))
-        nilaiAkhir= (0.30 * nilaiTugas) + (0.35 * nilaiUts) + (0.35 * nilaiUas)
-        dataMhs[nama]= nim, nilaiTugas, nilaiUts, nilaiUas, nilaiAkhir
-        print("\nData Berhasil Ditambahkan!")
-```
+> Menu program ubah data
 
-- Saya juga melakukan percabangan if (elif) untuk melaksanakan pilihan yang lain
-- Berikut program untuk mengubah data
+        def update():
+            print("Ubah Data")
+            nama = input("Masukkan Nama : ")
+            if nama in mahasiswa.keys():
+                nim = input("NIM\t : ")
+                uts = int(input("Nilai UTS\t : "))
+                uas = int(input("Nilai UAS\t : "))
+                tugas = int(input("Nilai Tugas\t : "))
+                akhir = (tugas * 30 / 100) + (uts * 35 / 100) + (uas * 35 / 100)
+                mahasiswa[nama] = nim, tugas, uts, uas, akhir
 
-```python
-    elif (c.lower() == 'u'):
-        print('\nMengedit Data Mahasiswa')
-        nama = input("Masukkan Nama: ")
-        if nama in dataMhs.keys():
-            nim= input("Masukkan NIM Baru\t: ")
-            nilaiTugas= int(input("Masukkan Nilai Tugas\t: "))
-            nilaiUts= int(input("Masukkan Nilai UTS\t: "))
-            nilaiUas= int(input("Masukkan Nilai UAS\t: "))
-            nilaiAkhir= (0.30 * nilaiTugas) + (0.35 * nilaiUts) + (0.35 * nilaiUas)
-            dataMhs[nama] = nim, nilaiTugas, nilaiUts, nilaiUas, nilaiAkhir
-            print("\nData Berhasil Di Update!")
-        else:
-            print("Data tidak ditemukan!")
-```            
+            else:
+                print("Nama tidak ditemukan ")
 
-- Berikut program untuk mencari data
-            
-```python
-    elif (c.lower() == 'c'):
-        print('\nCari Data Mahasiswa')
-        nama = input("Masukan Nama:  ")
-        if nama in dataMhs.keys():
-            print("\n                   DAFTAR NILAI MAHASISWA                   ")
-            print("==============================================================")
-            print("|     Nama     |    NIM    | Tugas |  UTS  |  UAS  |  Akhir |")
-            print("==============================================================")
-            print("| {0:12s} | {1:9s} | {2:5} | {3:5} | {4:5} | {5:6} |".format(nama, nim, nilaiTugas, nilaiUts, nilaiUas, nilaiAkhir))
-            print("==============================================================")
-        else:
-            print("Datanya {0} Tidak Ada ".format(nama))
-```
+> Menu program hapus data
 
-- Berikut program untuk menghapus data
+        def delete():
+            print("Hapus Data")
+            nama = input("Masukkan Nama : ")
 
-```python
-    elif (c.lower() == 'h'):
-        nama = input("Masukkan Nama:  ")
-        if nama in dataMhs.keys():
-            del dataMhs[nama]
-            print("Data Telah dihapus!")
-        else:
-            print("Data Mahasiswa Tidak Ada".format(nama))
-```
+            if nama in mahasiswa.keys():
+                del mahasiswa[nama]
 
-- Berikut program untuk melihat data
+            else:
+                print("Nama tidak ditemukan")
 
-```python
-    elif (c.lower() == 'l'):
-        if dataMhs.items():
-            print("\n                      DAFTAR NILAI MAHASISWA                    ")
-            print("==================================================================")
-            print("| No |     Nama     |    NIM    | Tugas |  UTS  |  UAS  |  Akhir |")
-            print("==================================================================")
-            i = 0
-            for x in dataMhs.items():
-                i += 1
-                print("| {6:2} | {0:12s} | {1:9s} | {2:5} | {3:5} | {4:5} | {5:6} |".format(x[0], x[1][0], x[1][1], x[1][2], x[1][3], x[1][4], i))
-            print("==================================================================")
-        else:
-            print("\n                      DAFTAR NILAI MAHASISWA                    ")
-            print("==================================================================")
-            print("| No |     Nama     |    NIM    | Tugas |  UTS  |  UAS  |  Akhir |")
-            print("==================================================================")
-            print("|                          TIDAK ADA DATA!                       |")
-            print("==================================================================")
-```
+> Menu program cari data
 
-- Berikut program untuk keluar dari program
+        def search():
+            print("Cari Data")
+            a = input("Masukkan Nama : ")
+            if a in mahasiswa.keys():
+                print("===========================================================================")
+                print("|      Nama      |     NIM     |  Tugas  |   UTS   |   UAS   |    Akhir   |")
+                print("===========================================================================")
+                print("| {0:14s} | {1:11s} | {2:7d} | {3:7d} | {4:7d} |     {5:6.2f} |"
+                    .format(a, mahasiswa[a][0], mahasiswa[a][1], mahasiswa[a][2], mahasiswa[a][3], mahasiswa[a][4]))
+                print("===========================================================================")
 
-```python
-    elif (c.lower() == 'k'):
-        print('\n')
-        print(21*'=')
-        print("Nama\t: Muhamad Faisal Ilham\nKelas\t: TI.22.A3\nNIM\t: 312210322")
-        print(21*'=')
-        break
-```
-
-- Dan saya juga menggunakan else yang digunakan apabila salah memasukkan pilihan inputan
-```python
-    else:
-        print("Pilih menu yang tersedia: ")
-        
-        
-  terima kasih :)
+            else:
+                print("=================================================================================")
+                print("| No |      Nama      |     NIM     |  Tugas  |   UTS   |   UAS   |    Akhir    |")
+                print("=================================================================================")
+                print("|                          DATA TIDAK DITEMUKAN                                 |")
+                print("=================================================================================")
