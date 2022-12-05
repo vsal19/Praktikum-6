@@ -20,114 +20,31 @@ NIM :312210322
 
 # Code:
 
-mahasiswa = {}
+![Menu Program - 6](https://user-images.githubusercontent.com/115516624/205641105-4d7165ef-52f7-4969-b37d-8672bba82eae.png)
 
-def show():
-    if mahasiswa.items():
-        print("Daftar Nilai")
-        print("=================================================================================")
-        print("| No |      Nama      |     NIM     |  Tugas  |   UTS   |   UAS   |    Akhir    |")
-        print("=================================================================================")
-        i = 0
-        for a in mahasiswa.items():
-            i += 1
-            print("| {no:2d} | {0:14s} | {1:11s} | {2:7d} | {3:7d} | {4:7d} |      {5:6.2f} |"
-            .format (a[0][: 14],a[1][0],a[1][1],a[1][2],a[1][3],a[1][4], no = i))
-        print("=================================================================================")
-        
-    else:
-        print("Daftar Nilai")
-        print("=================================================================================")
-        print("| No |      Nama      |     NIM     |  Tugas  |   UTS   |   UAS   |    Akhir    |")
-        print("=================================================================================")
-        print("|                                TIDAK ADA DATA                                 |")
-        print("=================================================================================")
 
-def add():
-    print("Tambah Data")
-    nama = input("Nama\t : ")
-    nim = input("NIM\t : ")
-    uts = int(input("Nilai UTS\t : "))
-    uas = int(input("Nilai UAS\t : "))
-    tugas = int(input("Nilai Tugas\t : "))
-    akhir = (tugas * 30/100) + (uts * 35/100) + (uas * 35/100)
-    mahasiswa[nama] = nim, tugas, uts, uas, akhir
+> Untuk Menambahkan Data
 
-def delete():
-    print("Hapus Data")
-    nama = input("Masukkan Nama : ")
-    
-    if nama in mahasiswa.keys():
-        del mahasiswa[nama]
-    
-    else:
-        print("Nama tidak ditemukan")
+![Tambah Data - 6](https://user-images.githubusercontent.com/115516624/205641151-fc782994-d4ce-4eb3-9213-adf84a5d3e05.png)
 
-def update():
-    print("Ubah Data")
-    nama = input("Masukkan Nama : ")
-    if nama in mahasiswa.keys():
-        nim = input("NIM\t : ")
-        uts = int(input("Nilai UTS\t : "))
-        uas = int(input("Nilai UAS\t : "))
-        tugas = int(input("Nilai Tugas\t : "))
-        akhir = (tugas * 30/100) + (uts * 35/100) + (uas * 35/100)
-        mahasiswa[nama] = nim, tugas, uts, uas, akhir
 
-    else:
-        print("Nama tidak ditemukan ")
+> Untuk Menghapus Data
 
-def search():
-    print("Cari Data")
-    a = input("Masukkan Nama : ")
-    if a in mahasiswa.keys():
-        print("===========================================================================")
-        print("|      Nama      |     NIM     |  Tugas  |   UTS   |   UAS   |    Akhir   |")
-        print("===========================================================================")
-        print("| {0:14s} | {1:11s} | {2:7d} | {3:7d} | {4:7d} |     {5:6.2f} |"
-            .format (a , mahasiswa[a][0], mahasiswa[a][1], mahasiswa[a][2], mahasiswa[a][3], mahasiswa[a][4] ))
-        print("===========================================================================")
+![Hapus Data - 6](https://user-images.githubusercontent.com/115516624/205641201-87cf336e-6b7b-44cd-ad3d-bb1301b47830.png)
 
-    else:
-        print("=================================================================================")
-        print("| No |      Nama      |     NIM     |  Tugas  |   UTS   |   UAS   |    Akhir    |")
-        print("=================================================================================")
-        print("|                          DATA TIDAK DITEMUKAN                                 |")
-        print("=================================================================================")
 
-def menu():
-    print("\n")
-    print("================================")
-    print("      Program input nilai       ")
-    print("================================\n")
+> Untuk Mengubah Data
 
-    x = input("[(L)ihat, (T)ambah, (U)bah, (H)apus, (C)ari, (K)eluar]: ")
-    print("\n")
+![Ubah data - 6](https://user-images.githubusercontent.com/115516624/205641283-d899422e-ae31-4370-885c-6ba18b822208.png)
 
-    if x == 'L':
-        show()
-    elif x == 'T':
-        add()
-    elif x == 'U':
-        update()
-    elif x == 'H':
-        delete()
-    elif x == 'C':
-        search()
-    elif x == 'K':
-        print("==========================================================================")
-        print('\n')
-        print("> You exit the code                        ")
-        print("\n")
-        print("==========================================================================")
+> Untuk Mencari Data
 
-        exit()
+![CARI DATA](https://user-images.githubusercontent.com/115516624/205642150-fa1057eb-fd60-48f5-88e5-089b8317739d.png)
 
-    else:
-        print("            KODE YANG ANDA MASUKKAN, TIDAK VALID !!!!!!!!!!!")
+> Untuk Menampilkan semua fungsi
 
-while True:
-    menu()
+![WHILE](https://user-images.githubusercontent.com/115516624/205642315-141f0c53-da75-46e9-944c-7623e4c8e2ca.png)
+
 
 # Contoh Output
 
