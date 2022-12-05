@@ -128,7 +128,7 @@ def menu():
 
 while True:
     menu()
-    
-# Output
+
+# Contoh Output
 
 ![JJJJJJ](https://user-images.githubusercontent.com/115516624/205638307-28d76b80-e016-4bb7-961d-9f965898b1fa.png)
