@@ -4,7 +4,7 @@ Nama: Muhamad Faisal Ilham
 
 Kelas: TI.22.A3
 
-NIM:312210322
+NIM :312210322
 
 
 # Tugas
